@@ -140,6 +140,14 @@
 	margin-right: 8px;
 	margin-bottom: 4px;
 }
+.tages_note_te{
+	margin-top: 4px;
+	margin-right: 8px;
+	margin-bottom: 4px;
+	background-color: #0db3a6;
+	color: #ffffff;
+	letter-spacing: 1px;
+}
 .tab_note{
 	font-size: 12px;
 	letter-spacing: 1px;

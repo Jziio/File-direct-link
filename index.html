@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title></title>
+		<title>File direct link</title>
 		<!-- Import style -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-plus/dist/index.css" />
 		<!-- Import Vue 3 -->
@@ -32,8 +32,8 @@
 					</div>
 					<div class="main_body">
 						<div class="ii-note">该源码已上传到GitHub，仅供学习娱乐参考。请勿使用本程序上传非法，涩情低俗网页，图像，视频。</div>
-						<div class="ii-note-2">接口失效不会维护。接口来自第三方平台，有效期不固定，仅供测试学习，切勿当成长期储存空间。有疑问找Q:1011550928，搬运二改留权.
-						</div>
+						<div class="ii-note-2">接口失效不会维护。接口来自第三方平台，有效期不固定，仅供测试学习，切勿当成长期储存空间。有疑问找Q:1011550928，搬运二改留权.</div>
+						<div class="ii-note-2">程序源码地址:https://github.com/Jziio/File-direct-link，转载留权。阿雄Q:1011550928</div>
 						<el-upload class="upload-demo" drag :action="Api" multiple
 							:on-success='FileSuccess' :on-error='FileError' :on-change='FileLoad'>
 							<i class="el-icon el-icon--upload"><svg viewBox="0 0 1024 1024"
@@ -48,7 +48,7 @@
 							<template #tip>
 								<div class="el-upload__tip"
 									style="color: #890d0d;letter-spacing: 1px;padding-top: 10px;">
-									备注: 当前接口 [ 云客服 ] 支持文件类型: mp4 、 html 、mp3 、 png 、jpg 、js 、m3u8
+									备注: 当前接口 [ {{Apibt}} ] 支持文件类型:{{ApiType}}
 								</div>
 								<div class="up_bt">
 									<span class="up_method">上传方式:</span>
@@ -58,19 +58,11 @@
 								</div>
 								<div class="up_bt">
 									<span class="up_method">上传接口:</span>
-									<el-check-tag class="tages_note">云客服</el-check-tag>
-									<el-check-tag class="tages_note">小学生</el-check-tag>
-									<el-check-tag class="tages_note">云客服</el-check-tag>
-									<el-check-tag class="tages_note">云客服-2</el-check-tag>
-									<el-check-tag class="tages_note">北京拍客</el-check-tag>
-									<el-check-tag class="tages_note">运营客服</el-check-tag>
-									<el-check-tag class="tages_note">tobacco</el-check-tag>
-									<el-check-tag class="tages_note">智能客服</el-check-tag>
+									<el-check-tag  :class="{'tages_note_te': Number(item.id) === Number(id), tages_note: Number(item.id) > 0}"      v-for="(item,index) in ApiList" :key="index" @click="Opt(item.api,item.filetype,item.id,item.bt)">{{item.bt}}</el-check-tag>
 								</div>
 								<div class="up_bt">
 									<span class="up_method">命名方式:</span>
-									<el-check-tag class="tages_note">自动重命名(时间戳)</el-check-tag>
-									<el-check-tag class="tages_note">保留原文件名</el-check-tag>
+									<el-check-tag class="tages_note_te">自动重命名(时间戳)</el-check-tag>
 								</div>
 								<div>
 									<el-tabs type="border-card" class="demo-tabs">
@@ -108,15 +100,56 @@
 			data() {
 				return {
 					LoadData: '等待任务中.....',
-					Api: 'http://119.91.29.159/upload/api3.php',
+					Api: 'fun/kf.php',
+					ApiList:[
+				// 		{
+				// 			'bt':'v5云客服',
+				// 			'api':'fun/kf.php',
+				// 			'filetype':'mp4 、mp3 、 png 、jpg  、m3u8',
+				// 			'id':1
+				// 		},
+				// 		{
+				// 			'bt':'Quick 云客服',
+				// 			'api':'fun/qui.php',
+				// 			'filetype':'mp4 、 html 、php 、mp3 、 png 、jpg 、js 、m3u8 、zip 、等',
+				// 			'id':2
+				// 		},
+				// 		{
+				// 			'bt':'北京拍客',
+				// 			'api':'fun/bjpk.php',
+				// 			'filetype':'png 、 jpg',
+				// 			'id':3
+				// 		},
+				// 		{
+				// 			'bt':'totao',
+				// 			'api':'fun/totao.php',
+				// 			'filetype':'png 、 jpg 、mp4',
+				// 			'id':4
+				// 		},
+				// 		{
+				// 			'bt':'云课堂',
+				// 			'api':'fun/ytk.php',
+				// 			'filetype':'mp4',
+				// 			'id':5
+				// 		},
+						{
+							'bt':'小学生[暂停使用]',
+							'api':'fun/xxs.php',
+							'filetype':'png 、jpg',
+							'id':6
+						}
+					],
+					Apibt:'v5云客服',
+					ApiType:'mp4 、mp3 、 png 、jpg  、m3u8',
+					id:1,
 				}
 			},
 			methods: {
 				FileSuccess(response) {
 					var self = this;
-					var dz = response['url'];
+					var dz = response;
 					this.LoadData = '任务上传完毕，返回地址:' + dz;
-					Vue.set(self.template, 'LoadData', '任务上传完毕，返回地址:' + dz);
+					Vue.set(self.template, 'LoadData', '任务上传完毕，返回地址: ' + dz);
 					// 这一块this.LoadData='任务上传完毕，返回地址:'+dz;
 					//  如果只用这句，loaddata的值不会变更，后面得加上一些方法才会更新，我也不知道为什么，如果有知道的大佬希望能解答一下
 					console.log(this.LoadData);
@@ -129,8 +162,17 @@
 				FileLoad(msg) {
 
 					this.LoadData = '检测到正在上传任务 ==> 200 <br/>上传任务已开始，请耐心等待返回内容.';
+				},
+				Opt(a,b,c,d){
+					this.Api=a;
+					this.Apibt=d;
+					this.ApiType=b;
+					this.id=c;
+				},
+				LoadTc(){
+				    
 				}
-			}
+			},
 		};
 		const zhu = Vue.createApp(App);
 		zhu.use(ElementPlus);
