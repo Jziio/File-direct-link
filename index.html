@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- Import style -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-plus/dist/index.css" />
+		<!-- Import Vue 3 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+		<!-- Import component library -->
+		<script src="https://cdn.jsdelivr.net/npm/element-plus"></script>
+		<link rel="stylesheet" href="css/index.css">
+		<script src="https://cdn.jsdelivr.net/npm/@element-plus/icons-vue"></script>
+	</head>
+	<body>
+		<div id="zhu">
+			<div class="header">
+				<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" :ellipsis="false"
+					@select="handleSelect">
+					<el-menu-item index="0">File direct link</el-menu-item>
+					<div class="flex-grow">
+						<el-menu-item index="1">GitHub</el-menu-item>
+					</div>
+				</el-menu>
+
+			</div>
+			<div class="z_body">
+				<div class="i_body">
+					<div class="main_header">
+						<h1 class="i_bnt_bt">File direct link - <span class="i_bnt_bi">图片、文档、视频、压缩文件、HTML 转直连</span>
+						</h1>
+					</div>
+					<div class="main_body">
+						<div class="ii-note">该源码已上传到GitHub，仅供学习娱乐参考。请勿使用本程序上传非法，涩情低俗网页，图像，视频。</div>
+						<div class="ii-note-2">接口失效不会维护。接口来自第三方平台，有效期不固定，仅供测试学习，切勿当成长期储存空间。有疑问找Q:1011550928，搬运二改留权.
+						</div>
+						<el-upload class="upload-demo" drag :action="Api" multiple
+							:on-success='FileSuccess' :on-error='FileError' :on-change='FileLoad'>
+							<i class="el-icon el-icon--upload"><svg viewBox="0 0 1024 1024"
+									xmlns="http://www.w3.org/2000/svg">
+									<path fill="currentColor"
+										d="M544 864V672h128L512 480 352 672h128v192H320v-1.6c-5.376.32-10.496 1.6-16 1.6A240 240 0 0 1 64 624c0-123.136 93.12-223.488 212.608-237.248A239.808 239.808 0 0 1 512 192a239.872 239.872 0 0 1 235.456 194.752c119.488 13.76 212.48 114.112 212.48 237.248a240 240 0 0 1-240 240c-5.376 0-10.56-1.28-16-1.6v1.6H544z">
+									</path>
+								</svg></i>
+							<div class="el-upload__text">
+								Drop file here or <em>click to upload</em>
+							</div>
+							<template #tip>
+								<div class="el-upload__tip"
+									style="color: #890d0d;letter-spacing: 1px;padding-top: 10px;">
+									备注: 当前接口 [ 云客服 ] 支持文件类型: mp4 、 html 、mp3 、 png 、jpg 、js 、m3u8
+								</div>
+								<div class="up_bt">
+									<span class="up_method">上传方式:</span>
+									<button class="el-button ii_txt">
+										<!--v-if--><span class="">Api</span>
+									</button>
+								</div>
+								<div class="up_bt">
+									<span class="up_method">上传接口:</span>
+									<el-check-tag class="tages_note">云客服</el-check-tag>
+									<el-check-tag class="tages_note">小学生</el-check-tag>
+									<el-check-tag class="tages_note">云客服</el-check-tag>
+									<el-check-tag class="tages_note">云客服-2</el-check-tag>
+									<el-check-tag class="tages_note">北京拍客</el-check-tag>
+									<el-check-tag class="tages_note">运营客服</el-check-tag>
+									<el-check-tag class="tages_note">tobacco</el-check-tag>
+									<el-check-tag class="tages_note">智能客服</el-check-tag>
+								</div>
+								<div class="up_bt">
+									<span class="up_method">命名方式:</span>
+									<el-check-tag class="tages_note">自动重命名(时间戳)</el-check-tag>
+									<el-check-tag class="tages_note">保留原文件名</el-check-tag>
+								</div>
+								<div>
+									<el-tabs type="border-card" class="demo-tabs">
+										<el-tab-pane label="日 志 (包 含 上 传 过 程 日 志)" class="tab_note">{{LoadData}}
+										</el-tab-pane>
+										<el-tab-pane label="常 见 问 题" class="tab_note">
+											<br>
+											1.上传长时间没反应，请启动f12选择网络监控事件，重新上传，然后看请求的返回值。 400-500 请更换接口。
+											<br><br>
+											2.如果出现突然出现跨域，可以尝试更换浏览器，或者更换网络，如不行，请自行查找解决方法。
+											<br><br>
+											3.此版本免费开源转载请留权，请勿二改收费。免费就不要谈性能，或者功能了，有功能也不会加载免费版的。
+											<br><br>
+											4.不提供接口服务，不提供接口服务，接口失效自行研究查找作者不提供接口。仅供学习娱乐参考。
+											<br><br>
+											5.如需指定文件类型api，可找Q:1011550928
+
+										</el-tab-pane>
+										<el-tab-pane label="不 会 用  请 看 这 里" class="tab_note">
+											<br>
+											1.建议删除关闭，然后睡觉，看剧，打游戏。
+											<br><br>
+											2.不会用可以找作者Q :1011550928 ，不免费，茶水费解决。
+										</el-tab-pane>
+									</el-tabs>
+								</div>
+							</template>
+						</el-upload>
+					</div>
+				</div>
+			</div>
+	</body>
+	<script>
+		const App = {
+			data() {
+				return {
+					LoadData: '等待任务中.....',
+					Api: 'http://119.91.29.159/upload/api3.php',
+				}
+			},
+			methods: {
+				FileSuccess(response) {
+					var self = this;
+					var dz = response['url'];
+					this.LoadData = '任务上传完毕，返回地址:' + dz;
+					Vue.set(self.template, 'LoadData', '任务上传完毕，返回地址:' + dz);
+					// 这一块this.LoadData='任务上传完毕，返回地址:'+dz;
+					//  如果只用这句，loaddata的值不会变更，后面得加上一些方法才会更新，我也不知道为什么，如果有知道的大佬希望能解答一下
+					console.log(this.LoadData);
+
+				},
+				FileError(err) {
+					this.LoadData = '上传失败，错误报告:' + err;
+					Vue.set(self.template, 'LoadData', '上传失败，错误报告:' + err);
+				},
+				FileLoad(msg) {
+
+					this.LoadData = '检测到正在上传任务 ==> 200 <br/>上传任务已开始，请耐心等待返回内容.';
+				}
+			}
+		};
+		const zhu = Vue.createApp(App);
+		zhu.use(ElementPlus);
+		zhu.mount("#zhu");
+	</script>
+</html>

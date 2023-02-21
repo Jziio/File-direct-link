@@ -1,0 +1,146 @@
+* {
+	border-radius: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+
+#zhu {
+	width: 100%;
+	height: 100%;
+}
+
+.header {
+	width: 100%;
+	height: 58px;
+}
+
+.flex-grow {
+	flex-grow: 1;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.z_body {
+	width: 100%;
+	height: 100%;
+	padding: 15px;
+	box-sizing: border-box;
+}
+
+.i_body {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding-top: 30px;
+	padding-bottom: 20px;
+	box-sizing: border-box;
+}
+
+.main_header {
+	width: 100%;
+	height: 55px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.main_body {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	flex-direction: column;
+}
+
+.i_bnt_bt {
+	line-height: 30px;
+	vertical-align: top;
+	font-size: 18px;
+	height: 30px;
+	font-weight: 黑体;
+	letter-spacing: 1px;
+	color: #0db3a6;
+	display: block;
+}
+
+.i_bnt_bi {
+	color: #898787;
+}
+
+.ii-note {
+	width: 50%;
+	background-color: #f2fbfb;
+	color: #0db3a6;
+	font-size: 13px;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	letter-spacing: 1px;
+	border-radius: 5px;
+	margin-bottom: 8px;
+}
+
+.ii-note-2 {
+	width: 50%;
+	background-color: rgb(245, 247, 250);
+	color: #8aacb3;
+	font-size: 13px;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	letter-spacing: 1px;
+	border-radius: 5px;
+	margin-bottom: 8px;
+}
+
+.upload-demo {
+	width: 51%;
+}
+
+.upload-fun {
+	width: 100%;
+	display: flex;
+}
+
+.up_bt {
+	width: 100%;
+	height: 55px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-bottom: 8px;
+	align-content: center;
+}
+
+.up_method {
+	font-size: 14px;
+	margin-right: 10px;
+	letter-spacing: 1px;
+}
+
+.ii_txt {
+	font-size: 13px;
+	letter-spacing: 1px;
+	background-color: #0db3a6;
+	color: #ffffff;
+}
+
+.up_but {
+	margin-left: 10px;
+}
+
+.tages_note {
+	margin-top: 4px;
+	margin-right: 8px;
+	margin-bottom: 4px;
+}
+.tab_note{
+	font-size: 12px;
+	letter-spacing: 1px;
+}
